@@ -7,6 +7,7 @@ function getDayDate($string) {
 }
 
 $current_day = date('d');
+
 ?>
 
 
@@ -20,39 +21,40 @@ $current_day = date('d');
     @vite('resources/js/app.js')
 </head>
 <body>
-    
-   
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Codice</th>
-      <th scope="col">Stazione di partenza</th>
-      <th scope="col">Stazione di arrivo</th>
-      <th scope="col">Orario di partenza</th>
-      <th scope="col">Orario di arrivo</th>
-      <th scope="col">giorno di Partenza</th>
-      <th scope="col">Codice treno</th>
+<h1 class="text-center mt-5 mb-5"> treni in partenza oggi </h1>
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Codice</th>
+        <th scope="col">Stazione di partenza</th>
+        <th scope="col">Stazione di arrivo</th>
+        <th scope="col">Orario di partenza</th>
+        <th scope="col">Orario di arrivo</th>
+        <th scope="col">giorno di Partenza</th>
+        
 
-    </tr>
-  </thead>
-  <tbody>
-    @foreach ($trains as $train )
+      </tr>
+    </thead>
+    <tbody>
+      @foreach ($trains as $train )
 
-    @if($train->Giorno_partenza == $current_day)
+      @if($train->Giorno_partenza == $current_day)
 
-    <tr>
-      <td>{{$train->Codice_Treno}}</td>
-      <td>{{$train->Stazione_di_partenza}}</td>
-      <td>{{$train->Stazione_di_arrivo}}</td>
-      <td>{{$train->Orario_di_partenza}}</td>
-      <td>{{$train->Orario_di_arrivo}}</td>
-      <td>{{$train->Giorno_partenza}}</td>
-      <td>{{$train->Codice_Treno}}</td>
-    </tr>
-  </tbody>
-    @endif
-    @endforeach
-</table>
+      <tr>
+        <td>{{$train->Codice_Treno}}</td>
+        <td>{{$train->Stazione_di_partenza}}</td>
+        <td>{{$train->Stazione_di_arrivo}}</td>
+        <td>{{$train->Orario_di_partenza}}</td>
+        <td>{{$train->Orario_di_arrivo}}</td>
+        <td>{{$train->Giorno_partenza}}</td>
+        
+      </tr>
+    </tbody>
+      @endif
+      @endforeach
+  </table>
+</div>
         
   
 
